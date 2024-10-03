@@ -9,7 +9,7 @@ app.get("/", (req, res) => res.send("Express on Vercel"));
 
 app.post("/post", async (req, res) => {
   try {
-    await sql`INSERT INTO data (data) VALUES (${JSON.stringify(req.headers)});`; //req.body
+    await sql`INSERT INTO data (data) VALUES (${JSON.stringify(req.body)})`;
     res.status(200).send("Success");
   } catch (error) {
     console.error(error);
